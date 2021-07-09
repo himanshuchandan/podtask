@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hackathon-deployment
+  labels:
+    app: hackathon
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hackathon
+  template:
+    metadata:
+      labels:
+        app: hackathon
+    spec:
+      containers:
+      - name: appscd
+        image: hackathonpod2/gameoflife-new
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+		
